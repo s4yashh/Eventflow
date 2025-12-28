@@ -5,8 +5,9 @@ A modern, beginner-friendly event listing web application built with **Vue.js 3*
 ## 🌟 Features
 
 ### Core Functionality
+
 - **Event Listing**: Browse all events in a beautiful card-based grid layout
-- **Dynamic Routing**: 
+- **Dynamic Routing**:
   - `/` - Home page with all events
   - `/events` - Dedicated events listing page with advanced filtering
   - `/events/[id]` - Detailed event page with full information
@@ -14,6 +15,7 @@ A modern, beginner-friendly event listing web application built with **Vue.js 3*
 - **Responsive Design**: Fully responsive UI that works seamlessly on desktop, tablet, and mobile devices
 
 ### Technical Features
+
 - **Server-Side Rendering (SSR)**: Built-in SEO optimization with Nuxt's SSR capability
 - **Reusable Vue Components**: Modular component architecture with Header, Footer, and EventCard components
 - **Mock Data**: JSON-based event data (no backend required)
@@ -48,22 +50,26 @@ EventFlow/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js (v16 or higher)
 - npm or yarn package manager
 
 ### Installation
 
 1. **Clone the repository** (or navigate to the project directory)
+
    ```bash
    cd EventFlow
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start the development server**
+
    ```bash
    npm run dev
    ```
@@ -88,33 +94,39 @@ npm run generate
 ## 🎨 Key Components Explained
 
 ### Header Component (`components/Header.vue`)
+
 - Navigation bar with links to Home and Events pages
 - EventFlow branding/logo
 - Sticky positioning for easy navigation
 
 ```vue
-<Header />  <!-- Used in app.vue -->
+<Header />
+<!-- Used in app.vue -->
 ```
 
 ### Footer Component (`components/Footer.vue`)
+
 - About section
 - Quick links
 - Contact information
 - Copyright notice
 
 ### EventCard Component (`components/EventCard.vue`)
+
 - Displays individual event information in card format
 - Shows title, description, date, time, and location
 - Links to detailed event page
 - Accepts event object as prop
 
 ```vue
-<EventCard :event="event" />  <!-- Pass event data as prop -->
+<EventCard :event="event" />
+<!-- Pass event data as prop -->
 ```
 
 ## 📄 Pages Explained
 
 ### Home Page (`pages/index.vue`)
+
 - Main landing page displaying all events
 - Search bar to filter events by name, description, location, or category
 - Real-time filtering with computed properties
@@ -122,17 +134,20 @@ npm run generate
 - Empty state when no results match search
 
 **Key Features:**
+
 - `searchQuery` - Data property for search input
 - `filteredEvents` - Computed property that filters events in real-time
 - Case-insensitive search across multiple event fields
 
 ### Events Page (`pages/events/index.vue`)
+
 - Dedicated events listing page
 - Advanced search and filtering
 - Sort functionality (by date, title, location)
 - Same event grid as home page with additional controls
 
 ### Event Detail Page (`pages/events/[id].vue`)
+
 - Dynamic route based on event ID
 - Displays complete event information:
   - Event title and description
@@ -162,6 +177,7 @@ Events are stored in `data/events.json` with the following structure:
 ```
 
 ### Fields:
+
 - **id**: Unique identifier for the event
 - **title**: Event name
 - **description**: Full event description
@@ -188,7 +204,7 @@ filteredEvents() {
   if (!this.searchQuery.trim()) {
     return this.events;
   }
-  
+
   const query = this.searchQuery.toLowerCase();
   return this.events.filter(event =>
     event.title.toLowerCase().includes(query) ||
@@ -207,17 +223,18 @@ The application uses CSS custom properties for easy theming:
 
 ```css
 :root {
-  --primary-color: #6366f1;        /* Main brand color */
-  --secondary-color: #8b5cf6;      /* Secondary/hover color */
-  --dark-color: #1f2937;           /* Text color */
-  --light-color: #f9fafb;          /* Background color */
-  --border-color: #e5e7eb;         /* Border color */
+  --primary-color: #6366f1; /* Main brand color */
+  --secondary-color: #8b5cf6; /* Secondary/hover color */
+  --dark-color: #1f2937; /* Text color */
+  --light-color: #f9fafb; /* Background color */
+  --border-color: #e5e7eb; /* Border color */
 }
 ```
 
 ### Responsive Design
 
 The application is fully responsive with breakpoints for:
+
 - **Desktop**: Full features and layout
 - **Tablet** (≤768px): Optimized grid and navigation
 - **Mobile** (≤480px): Single column layout, touch-friendly interface
@@ -225,17 +242,20 @@ The application is fully responsive with breakpoints for:
 ## 🔧 Configuration Files
 
 ### `nuxt.config.ts`
+
 - Nuxt 3 configuration with SSR enabled
 - CSS imports for global styles
 - Head configuration with meta tags for SEO
 - Route caching rules for performance
 
 ### `tsconfig.json`
+
 - TypeScript configuration for the project
-- Path aliases (~/*, @/*) for imports
+- Path aliases (~/_, @/_) for imports
 - DOM and Node.js lib support
 
 ### `package.json`
+
 - Dependencies: nuxt, vue
 - Scripts for development, building, and production
 
@@ -259,6 +279,7 @@ The application is built with SEO in mind:
 ## 🚦 Getting Help
 
 ### Development Tips:
+
 1. **Component Reusability**: Create more reusable components by extracting common patterns
 2. **State Management**: Consider using Pinia for complex state management
 3. **API Integration**: Replace mock data with real API calls by modifying data imports
@@ -268,14 +289,17 @@ The application is built with SEO in mind:
 ### Common Tasks:
 
 **Add a New Page:**
+
 1. Create a new `.vue` file in the `pages/` directory
 2. Nuxt automatically creates routes based on file structure
 
 **Add a New Component:**
+
 1. Create a `.vue` file in `components/` directory
 2. Auto-import feature means no need to explicitly import
 
 **Modify Styles:**
+
 1. Edit `assets/css/global.css` for global styles
 2. Use `<style scoped>` in components for component-specific styles
 
@@ -288,21 +312,16 @@ The application is built with SEO in mind:
 ## 🎓 Beginner-Friendly Code Examples
 
 ### Using Props in Components:
+
 ```vue
 <EventCard :event="eventData" />
 
-// In EventCard.vue:
-export default {
-  props: {
-    event: {
-      type: Object,
-      required: true
-    }
-  }
-}
+// In EventCard.vue: export default { props: { event: { type: Object, required:
+true } } }
 ```
 
 ### Computed Properties for Filtering:
+
 ```javascript
 computed: {
   filteredEvents() {
@@ -313,6 +332,7 @@ computed: {
 ```
 
 ### Dynamic Routes:
+
 ```vue
 <NuxtLink :to="`/events/${event.id}`">View Details</NuxtLink>
 ```

@@ -23,27 +23,32 @@ If you find a bug or have a suggestion:
 ### Development Setup
 
 1. **Fork the repository**
+
    ```bash
    git clone https://github.com/s4yashh/Eventflow.git
    cd EventFlow
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Create a feature branch**
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
 
 4. **Make your changes**
+
    - Keep commits small and focused
    - Write clear commit messages
    - Add comments for complex logic
 
 5. **Test your changes**
+
    ```bash
    npm run dev
    ```
@@ -75,6 +80,7 @@ When creating new components:
 4. **Comments** - Add comments explaining the component's purpose
 
 Example:
+
 ```vue
 <template>
   <div class="component-name">
@@ -85,7 +91,7 @@ Example:
 <script>
 /**
  * ComponentName
- * 
+ *
  * Brief description of what this component does
  */
 export default {
@@ -95,11 +101,11 @@ export default {
     title: {
       type: String,
       required: true,
-      description: "The component title"
-    }
+      description: "The component title",
+    },
   },
   // ... rest of component
-}
+};
 </script>
 
 <style scoped>
@@ -131,12 +137,14 @@ test: Add unit tests for EventCard component
 ## Pull Request Process
 
 1. **Before submitting:**
+
    - Ensure code follows project standards
    - Test the changes thoroughly
    - Update documentation if needed
    - Rebase on latest main branch
 
 2. **PR description should include:**
+
    - What changes were made
    - Why the changes were made
    - Any breaking changes
@@ -171,6 +179,7 @@ Looking for something to contribute? Consider these enhancements:
 ## Recognition
 
 Contributors will be recognized in:
+
 - The project README
 - Commit history
 - GitHub contributors page

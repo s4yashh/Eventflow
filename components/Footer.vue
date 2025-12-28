@@ -20,9 +20,9 @@
         <div class="footer-section">
           <h4 class="footer-section-title">About EventFlow</h4>
           <p class="footer-section-description">
-            EventFlow is your go-to platform for discovering and exploring amazing
-            events happening near you. Stay updated with the latest workshops,
-            conferences, and community meetups.
+            EventFlow is your go-to platform for discovering and exploring
+            amazing events happening near you. Stay updated with the latest
+            workshops, conferences, and community meetups.
           </p>
           <div class="social-links">
             <a href="#" class="social-link" title="Twitter">Twitter</a>
@@ -85,9 +85,7 @@
       <!-- Footer bottom with copyright -->
       <div class="footer-bottom">
         <div class="footer-bottom-content">
-          <p class="copyright">
-            &copy; 2025 EventFlow. All rights reserved.
-          </p>
+          <p class="copyright">&copy; 2025 EventFlow. All rights reserved.</p>
           <p class="built-with">
             Built with <span class="heart">❤️</span> using Vue.js & Nuxt
           </p>
@@ -100,13 +98,13 @@
 <script setup lang="ts">
 /**
  * Footer Component
- * 
+ *
  * Provides the site footer with:
  * - About information
  * - Quick navigation links
  * - Contact details
  * - Copyright notice
- * 
+ *
  * This is a stateless (presentational) component displayed at the bottom of every page.
  */
 </script>
@@ -253,7 +251,8 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {

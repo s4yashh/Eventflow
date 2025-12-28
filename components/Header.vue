@@ -50,12 +50,12 @@
 <script setup lang="ts">
 /**
  * Header Component
- * 
+ *
  * Provides the main navigation header for the EventFlow application.
  * - Displays the EventFlow brand/logo
  * - Navigation menu with page links
  * - Automatically responsive on mobile devices
- * 
+ *
  * This is a stateless (presentational) component with no props or data.
  */
 </script>
@@ -136,7 +136,7 @@
 
 /* Underline animation on hover (optional enhancement) */
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -4px;
   left: 0;

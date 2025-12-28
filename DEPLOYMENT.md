@@ -5,6 +5,7 @@ This guide provides comprehensive instructions for deploying EventFlow in variou
 ## 📋 Prerequisites
 
 Before deploying, ensure you have:
+
 - Node.js 16.x or higher
 - npm or yarn package manager
 - Git for version control
@@ -15,6 +16,7 @@ Before deploying, ensure you have:
 ### Local Development
 
 #### Setup
+
 ```bash
 # Clone the repository
 git clone https://github.com/s4yashh/Eventflow.git
@@ -30,6 +32,7 @@ npm run dev
 **Access:** http://localhost:3000
 
 #### Development Features
+
 - Hot module reloading (auto-refresh)
 - Source maps for debugging
 - Full error reporting
@@ -38,6 +41,7 @@ npm run dev
 ### Production Build
 
 #### Build Process
+
 ```bash
 # Install dependencies (if not already done)
 npm install
@@ -50,12 +54,14 @@ npm run preview
 ```
 
 #### Build Output
+
 - Output directory: `.output/`
 - Optimized and minified code
 - Precompiled assets
 - Ready for deployment
 
 #### Start Production Server
+
 ```bash
 # Start production server
 npm run start
@@ -64,12 +70,14 @@ npm run start
 ### Static Site Generation
 
 #### Generate Static Files
+
 ```bash
 # Generate static HTML files
 npm run generate
 ```
 
 #### Output
+
 - Directory: `dist/`
 - Static HTML for all routes
 - Pre-rendered for maximum performance
@@ -82,12 +90,15 @@ npm run generate
 **Vercel is the official hosting platform for Nuxt**
 
 #### Steps:
+
 1. **Install Vercel CLI**
+
    ```bash
    npm i -g vercel
    ```
 
 2. **Deploy**
+
    ```bash
    vercel
    ```
@@ -101,6 +112,7 @@ npm run generate
    ```
 
 #### Benefits
+
 - Automatic deployments on git push
 - Zero-config setup
 - Free tier available
@@ -112,12 +124,15 @@ npm run generate
 ### Netlify
 
 #### Steps:
+
 1. **Connect GitHub Repository**
+
    - Go to netlify.com
    - Click "New site from Git"
    - Select your repository
 
 2. **Build Settings**
+
    - Build command: `npm run build`
    - Publish directory: `.output/public`
 
@@ -125,6 +140,7 @@ npm run generate
    - Netlify automatically builds on git push
 
 #### Configuration (netlify.toml)
+
 ```toml
 [build]
 command = "npm run build"
@@ -137,6 +153,7 @@ port = 3000
 ```
 
 #### Benefits
+
 - Free tier included
 - Automatic deployments
 - Form handling
@@ -147,6 +164,7 @@ port = 3000
 ### Railway
 
 #### Steps:
+
 1. **Create Account** at railway.app
 2. **Connect Repository**
 3. **Set Environment**
@@ -157,6 +175,7 @@ port = 3000
    ```
 
 #### Configuration (railway.json)
+
 ```json
 {
   "$schema": "https://railway.app/railway.schema.json",
@@ -169,7 +188,9 @@ port = 3000
 ### Heroku (Legacy Option)
 
 #### Steps:
+
 1. **Create Procfile**
+
    ```
    web: npm run start
    ```
@@ -183,6 +204,7 @@ port = 3000
 ### Docker Deployment
 
 #### Create Dockerfile
+
 ```dockerfile
 # Build stage
 FROM node:18-alpine AS builder
@@ -203,6 +225,7 @@ CMD ["node", ".output/server/index.mjs"]
 ```
 
 #### Build and Run
+
 ```bash
 # Build image
 docker build -t eventflow .
@@ -212,8 +235,9 @@ docker run -p 3000:3000 eventflow
 ```
 
 #### Docker Compose
+
 ```yaml
-version: '3.8'
+version: "3.8"
 services:
   eventflow:
     build: .
@@ -226,17 +250,21 @@ services:
 ### AWS EC2
 
 #### Steps:
+
 1. **Launch EC2 Instance**
+
    - AMI: Ubuntu 20.04 LTS
    - Instance type: t2.micro (free tier)
 
 2. **Install Node.js**
+
    ```bash
    curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
    sudo apt-get install -y nodejs
    ```
 
 3. **Clone and Deploy**
+
    ```bash
    git clone https://github.com/s4yashh/Eventflow.git
    cd EventFlow
@@ -246,11 +274,13 @@ services:
    ```
 
 4. **Setup Reverse Proxy (Nginx)**
+
    ```bash
    sudo apt install nginx
    ```
 
    **Configure /etc/nginx/sites-available/default**
+
    ```nginx
    server {
        listen 80;
@@ -276,6 +306,7 @@ services:
 ## 📦 Environment Variables
 
 ### Development (.env.local)
+
 ```env
 NODE_ENV=development
 HOST=localhost
@@ -283,6 +314,7 @@ PORT=3000
 ```
 
 ### Production (.env.production)
+
 ```env
 NODE_ENV=production
 HOST=0.0.0.0
@@ -310,6 +342,7 @@ Before production deployment:
 ### Pre-deployment Checklist
 
 1. **Build Optimization**
+
    ```bash
    # Analyze build size
    npm run build
@@ -317,6 +350,7 @@ Before production deployment:
    ```
 
 2. **Asset Optimization**
+
    - Compress images
    - Minimize CSS/JS
    - Enable gzip compression
@@ -329,6 +363,7 @@ Before production deployment:
 ### Monitoring & Analytics
 
 Setup monitoring for:
+
 - Application uptime
 - Response times
 - Error rates
@@ -336,6 +371,7 @@ Setup monitoring for:
 - Performance metrics
 
 ### Popular Monitoring Tools
+
 - **Sentry** - Error tracking
 - **LogRocket** - Session replay
 - **DataDog** - Infrastructure monitoring
@@ -347,6 +383,7 @@ Setup monitoring for:
 ### Common Issues
 
 #### 1. Build Fails
+
 ```bash
 # Clear node_modules and reinstall
 rm -rf node_modules package-lock.json
@@ -355,6 +392,7 @@ npm run build
 ```
 
 #### 2. Port Already in Use
+
 ```bash
 # Find process on port 3000
 lsof -i :3000
@@ -364,12 +402,14 @@ kill -9 <PID>
 ```
 
 #### 3. Memory Issues
+
 ```bash
 # Increase Node memory
 NODE_OPTIONS=--max-old-space-size=4096 npm run build
 ```
 
 #### 4. Database Connection Fails
+
 - Check connection string
 - Verify firewall rules
 - Test connection separately
@@ -394,6 +434,7 @@ NODE_OPTIONS=--max-old-space-size=4096 npm run build
 ### GitHub Actions Example
 
 Create `.github/workflows/deploy.yml`:
+
 ```yaml
 name: Deploy to Production
 
@@ -408,14 +449,14 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '18'
-      
+          node-version: "18"
+
       - name: Install dependencies
         run: npm install
-      
+
       - name: Build
         run: npm run build
-      
+
       - name: Deploy to Vercel
         run: vercel --prod
         env:

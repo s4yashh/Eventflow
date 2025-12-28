@@ -7,6 +7,7 @@ EventFlow is a feature-rich event discovery platform built with modern web techn
 ### 1. **Event Discovery & Listing**
 
 #### Home Page (`/`)
+
 - **All Events Display**: View all available events in a responsive grid layout
 - **Real-time Search**: Filter events dynamically as you type
 - **Search Filters**: Find events by:
@@ -21,6 +22,7 @@ EventFlow is a feature-rich event discovery platform built with modern web techn
   - Link to detailed view
 
 **How to Use:**
+
 ```
 1. Navigate to the home page
 2. Type in the search bar to filter events
@@ -29,6 +31,7 @@ EventFlow is a feature-rich event discovery platform built with modern web techn
 ```
 
 #### Events Page (`/events`)
+
 - **Dedicated Events Page**: Full-featured events browser
 - **Advanced Search**: More robust search functionality
 - **Sorting Options**:
@@ -39,6 +42,7 @@ EventFlow is a feature-rich event discovery platform built with modern web techn
 - **Event Grid**: Same responsive layout as home page
 
 **How to Use:**
+
 ```
 1. Go to /events page
 2. Use search bar to filter events
@@ -49,7 +53,9 @@ EventFlow is a feature-rich event discovery platform built with modern web techn
 ### 2. **Event Details**
 
 #### Event Detail Page (`/events/[id]`)
+
 - **Complete Event Information**:
+
   - Full event description
   - Event date (formatted readable style)
   - Time and location details
@@ -57,17 +63,20 @@ EventFlow is a feature-rich event discovery platform built with modern web techn
   - Header image (when available)
 
 - **Navigation Features**:
+
   - **Breadcrumb Navigation**: Shows path to current page
   - **Previous/Next Buttons**: Navigate between events in sequence
   - **Back to Events**: Quick link to browse other events
 
 - **Call-to-Action**:
+
   - "Register Now" button for event signup
   - Social sharing buttons (Twitter, Facebook, LinkedIn)
 
 - **Responsive Design**: Optimized layout for all screen sizes
 
 **How to Use:**
+
 ```
 1. Click "View Details" from any event card
 2. Read full event information
@@ -79,6 +88,7 @@ EventFlow is a feature-rich event discovery platform built with modern web techn
 ### 3. **Search & Filtering**
 
 #### Multi-Field Search
+
 The search functionality scans across multiple fields:
 
 ```javascript
@@ -90,12 +100,14 @@ The search functionality scans across multiple fields:
 ```
 
 **Search Examples:**
+
 - "Vue.js" → Finds Vue.js Workshop event
 - "San Francisco" → Finds all events in San Francisco
 - "Design" → Finds Design Masterclass and other design events
 - "JavaScript" → Finds JavaScript Bootcamp event
 
 #### Smart Filtering Algorithm
+
 - **Case-Insensitive**: Search works regardless of text case
 - **Partial Matching**: Finds events containing your search term
 - **Real-Time Results**: Updates instantly as you type
@@ -104,23 +116,23 @@ The search functionality scans across multiple fields:
 ### 4. **Responsive Design**
 
 #### Mobile First Approach
+
 - **Mobile Devices** (≤480px):
   - Single column event layout
   - Optimized touch targets
   - Simplified navigation
   - Readable font sizes
-  
 - **Tablets** (480px - 768px):
   - Two column grid
   - Balanced layout
   - Accessible menus
-  
 - **Desktop** (≥768px):
   - Multi-column grid
   - Full feature set
   - Optimized spacing
 
 #### Responsive Features
+
 - **Flexible Grid**: Automatically adjusts number of columns
 - **Adaptive Navigation**: Menu adapts to screen size
 - **Touch-Friendly**: Buttons and links sized for touch input
@@ -130,13 +142,16 @@ The search functionality scans across multiple fields:
 ### 5. **UI/UX Components**
 
 #### Reusable Components
+
 1. **Header Component**
+
    - Site logo and branding
    - Navigation menu
    - Sticky positioning for easy access
    - Responsive mobile menu
 
 2. **Footer Component**
+
    - About section
    - Quick navigation links
    - Contact information
@@ -151,13 +166,16 @@ The search functionality scans across multiple fields:
    - Hover animations
 
 #### Visual Elements
+
 - **Color Scheme**:
+
   - Primary Blue: `#6366f1` (links, accents)
   - Secondary Purple: `#8b5cf6` (hover states)
   - Dark Grey: `#1f2937` (text)
   - Light Grey: `#f9fafb` (background)
 
 - **Typography**:
+
   - System fonts for best compatibility
   - Proper heading hierarchy (H1, H2, H3, etc.)
   - Readable line height and spacing
@@ -171,6 +189,7 @@ The search functionality scans across multiple fields:
 ### 6. **SEO Optimization**
 
 #### Server-Side Rendering
+
 - **SSR Enabled**: All pages pre-rendered on server
 - **Meta Tags**: Proper title and description for each page
 - **Semantic HTML**: Proper heading structure and elements
@@ -180,11 +199,13 @@ The search functionality scans across multiple fields:
   - Detail: "[Event Title] - EventFlow"
 
 #### Meta Descriptions
+
 - **Home Page**: "Discover and explore upcoming events..."
 - **Events Page**: "Browse all upcoming events and workshops"
 - **Detail Page**: First 160 chars of event description
 
 #### Performance Optimization
+
 - **Route Caching**: Reduces server load for frequently accessed pages
 - **CSS Integration**: Global styles loaded efficiently
 - **Image Optimization**: Images served at appropriate sizes
@@ -192,8 +213,9 @@ The search functionality scans across multiple fields:
 ### 7. **Data Management**
 
 #### Mock Data System
+
 - **JSON Data File**: `data/events.json`
-- **Event Structure**: 
+- **Event Structure**:
   ```json
   {
     "id": 1,
@@ -208,12 +230,14 @@ The search functionality scans across multiple fields:
   ```
 
 #### Sample Events
+
 - 8 pre-loaded sample events
 - Diverse categories (Technology, Design)
 - Realistic dates and locations
 - Complete descriptions for testing
 
 #### Future API Integration
+
 - Easy to replace JSON with real API calls
 - No breaking changes needed
 - Same data structure compatible with API endpoints
@@ -221,7 +245,9 @@ The search functionality scans across multiple fields:
 ### 8. **Navigation**
 
 #### Internal Navigation
-- **Dynamic Routes**: 
+
+- **Dynamic Routes**:
+
   - `/` - Home page
   - `/events` - Events listing
   - `/events/[id]` - Event details
@@ -234,24 +260,28 @@ The search functionality scans across multiple fields:
   - Breadcrumb navigation
 
 #### Link Types
+
 - **NuxtLink**: Internal page navigation (fast, no refresh)
 - **External Links**: Contact, social media
 
 ### 9. **User Experience Enhancements**
 
 #### Feedback & States
+
 - **Loading States**: Smooth page transitions
 - **Empty States**: User-friendly messages when no results
 - **Error Handling**: Graceful event-not-found page
 - **Success Feedback**: Visual confirmation of actions
 
 #### Animations
+
 - **Page Transitions**: Fade-in effect on page load
 - **Card Hover**: Lift effect when hovering over events
 - **Link Hover**: Color change and arrow animation
 - **Heart Animation**: Pulsing effect in footer
 
 #### Accessibility Features
+
 - **Semantic HTML**: Proper element usage
 - **Color Contrast**: Sufficient contrast for readability
 - **Readable Text**: Appropriate font sizes
@@ -261,12 +291,14 @@ The search functionality scans across multiple fields:
 ### 10. **Performance Features**
 
 #### Optimization Techniques
+
 - **Code Splitting**: Automatic route-based splitting
 - **Auto-Import**: Components automatically imported (no manual imports)
 - **CSS Modules**: Scoped styles prevent conflicts
 - **Image Optimization**: Lazy loading ready
 
 #### Build Configuration
+
 - **TypeScript Support**: Type safety built-in
 - **Development Mode**: Hot module reloading
 - **Production Build**: Minified and optimized output
@@ -275,23 +307,27 @@ The search functionality scans across multiple fields:
 ## 🚀 Getting Started with Features
 
 ### Basic Event Browsing
+
 1. Open home page
 2. Browse event cards
 3. Use search to find specific events
 4. Click to view details
 
 ### Advanced Search
+
 1. Go to `/events` page
 2. Type in search box for filtering
 3. Use sort dropdown for ordering
 4. Combine search + sort for best results
 
 ### Event Registration
+
 1. View event details
 2. Click "Register Now" button
 3. (Future feature) Complete registration form
 
 ### Sharing Events
+
 1. Open event detail page
 2. Click social media button
 3. Share link to social network
