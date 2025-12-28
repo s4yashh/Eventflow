@@ -16,7 +16,6 @@
         <span><strong>📅 Date:</strong> {{ formatDate(event.date) }}</span>
         <span><strong>🕐 Time:</strong> {{ event.time }}</span>
         <span><strong>📍 Location:</strong> {{ event.location }}</span>
-        <span><strong>👥 Attendees:</strong> {{ event.attendees }}</span>
       </div>
 
       <!-- Link to view full event details -->
