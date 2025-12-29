@@ -47,7 +47,7 @@
   </header>
 </template>
 
-<script setup lang="ts">
+<script>
 /**
  * Header Component
  *
@@ -58,6 +58,7 @@
  *
  * This is a stateless (presentational) component with no props or data.
  */
+export default {}
 </script>
 
 <style scoped>

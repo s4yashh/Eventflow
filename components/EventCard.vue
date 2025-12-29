@@ -78,52 +78,29 @@
   </div>
 </template>
 
-<script setup lang="ts">
-/**
- * EventCard Component
- *
- * Displays a single event in card format with:
- * - Event category badge
- * - Title and description
- * - Date, time, and location metadata
- * - Link to detailed event page
- *
- * This component is reusable and can be used in any listing context.
- */
 
-// Define the Event type/interface
-interface Event {
-  id: number;
-  title: string;
-  description: string;
-  date: string;
-  time: string;
-  location: string;
-  category: string;
-  image?: string;
+export default {
+  name: 'EventCard',
+  props: ['event'],
+  methods: {
+    /**
+     * Format Date Utility Function
+     * Converts date string (YYYY-MM-DD) to readable format
+     * Example: "2025-02-15" → "Feb 15, 2025"
+     *
+     * @param dateString - Date in YYYY-MM-DD format
+     * @returns Formatted date string
+     */
+    formatDate(dateString) {
+      const options = {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      };
+      return new Date(dateString).toLocaleDateString("en-US", options);
+    }
+  }
 }
-
-// Accept the event object as a prop
-defineProps<{
-  event: Event;
-}>();
-
-/**
- * Format Date Utility Function
- * Converts date string (YYYY-MM-DD) to readable format
- * Example: "2025-02-15" → "Feb 15, 2025"
- *
- * @param dateString - Date in YYYY-MM-DD format
- * @returns Formatted date string
- */
-const formatDate = (dateString: string): string => {
-  const options: Intl.DateTimeFormatOptions = {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  };
-  return new Date(dateString).toLocaleDateString("en-US", options);
-};
 </script>
 
 <style scoped>

@@ -95,7 +95,7 @@
   </footer>
 </template>
 
-<script setup lang="ts">
+<script>
 /**
  * Footer Component
  *
@@ -107,6 +107,7 @@
  *
  * This is a stateless (presentational) component displayed at the bottom of every page.
  */
+export default {}
 </script>
 
 <style scoped>

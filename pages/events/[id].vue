@@ -156,84 +156,75 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, computed } from "vue";
+<script>
 import eventsData from "~/data/events.json";
 
-// Define event interface
-interface Event {
-  id: number;
-  title: string;
-  description: string;
-  date: string;
-  time: string;
-  location: string;
-  category: string;
-  image: string;
-}
-
-// Get the route params to get the event ID
-const route = useRoute();
-const router = useRouter();
-const eventId = parseInt(route.params.id as string);
-
-// Find the event from the data
-const allEvents = ref<Event[]>(eventsData);
-const event = computed(() => {
-  return allEvents.value.find((e) => e.id === eventId) || null;
-});
-
-// Find previous and next events for navigation
-const previousEvent = computed(() => {
-  const currentIndex = allEvents.value.findIndex((e) => e.id === eventId);
-  return currentIndex > 0 ? allEvents.value[currentIndex - 1] : null;
-});
-
-const nextEvent = computed(() => {
-  const currentIndex = allEvents.value.findIndex((e) => e.id === eventId);
-  return currentIndex < allEvents.value.length - 1
-    ? allEvents.value[currentIndex + 1]
-    : null;
-});
-
-// Format date utility function
-const formatDate = (dateString: string): string => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-};
-
-// Navigation functions
-const goToPreviousEvent = () => {
-  if (previousEvent.value) {
-    router.push(`/events/${previousEvent.value.id}`);
-  }
-};
-
-const goToNextEvent = () => {
-  if (nextEvent.value) {
-    router.push(`/events/${nextEvent.value.id}`);
-  }
-};
-
-// Set page title and meta for SEO
-useHead({
-  title: event.value
-    ? `${event.value.title} - EventFlow`
-    : "Event Not Found - EventFlow",
-  meta: [
-    {
-      name: "description",
-      content: event.value
-        ? `${event.value.description.substring(0, 160)}...`
-        : "Event details page",
+export default {
+  data() {
+    return {
+      eventId: null,
+      allEvents: eventsData
+    };
+  },
+  computed: {
+    // Find the event from the data
+    event() {
+      return this.allEvents.find((e) => e.id === this.eventId) || null;
     },
-  ],
-});
+    // Find previous and next events for navigation
+    previousEvent() {
+      const currentIndex = this.allEvents.findIndex((e) => e.id === this.eventId);
+      return currentIndex > 0 ? this.allEvents[currentIndex - 1] : null;
+    },
+    nextEvent() {
+      const currentIndex = this.allEvents.findIndex((e) => e.id === this.eventId);
+      return currentIndex < this.allEvents.length - 1
+        ? this.allEvents[currentIndex + 1]
+        : null;
+    }
+  },
+  mounted() {
+    this.eventId = parseInt(this.$route.params.id);
+  },
+  methods: {
+    // Format date utility function
+    formatDate(dateString) {
+      const date = new Date(dateString);
+      return date.toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    },
+    // Navigation functions
+    goToPreviousEvent() {
+      if (this.previousEvent) {
+        this.$router.push(`/events/${this.previousEvent.id}`);
+      }
+    },
+    goToNextEvent() {
+      if (this.nextEvent) {
+        this.$router.push(`/events/${this.nextEvent.id}`);
+      }
+    }
+  },
+  head() {
+    return {
+      title: this.event
+        ? `${this.event.title} - EventFlow`
+        : "Event Not Found - EventFlow",
+      meta: [
+        {
+          name: "description",
+          content: this.event
+            ? `${this.event.description.substring(0, 160)}...`
+            : "Event details page",
+        },
+      ],
+    };
+  }
+}
 </script>
 
 <style scoped>

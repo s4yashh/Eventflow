@@ -57,60 +57,56 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, computed } from "vue";
+<script>
 import EventCard from "~/components/EventCard.vue";
 import eventsData from "~/data/events.json";
 
-// Define event interface
-interface Event {
-  id: number;
-  title: string;
-  description: string;
-  date: string;
-  time: string;
-  location: string;
-  category: string;
-  image: string;
-}
+export default {
+  components: {
+    EventCard
+  },
+  data() {
+    return {
+      searchQuery: "",
+      sortBy: "date",
+      events: eventsData
+    };
+  },
+  computed: {
+    // Filter and sort events
+    filteredEvents() {
+      let filtered = this.events.filter(
+        (event) =>
+          event.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+          event.location.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
 
-// Reactive data
-const searchQuery = ref("");
-const sortBy = ref("date");
-const events = ref<Event[]>(eventsData);
+      // Sort events
+      if (this.sortBy === "date") {
+        filtered.sort(
+          (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+        );
+      } else if (this.sortBy === "title") {
+        filtered.sort((a, b) => a.title.localeCompare(b.title));
+      } else if (this.sortBy === "location") {
+        filtered.sort((a, b) => a.location.localeCompare(b.location));
+      }
 
-// Filter and sort events
-const filteredEvents = computed(() => {
-  let filtered = events.value.filter(
-    (event) =>
-      event.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-      event.location.toLowerCase().includes(searchQuery.value.toLowerCase())
-  );
-
-  // Sort events
-  if (sortBy.value === "date") {
-    filtered.sort(
-      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-    );
-  } else if (sortBy.value === "title") {
-    filtered.sort((a, b) => a.title.localeCompare(b.title));
-  } else if (sortBy.value === "location") {
-    filtered.sort((a, b) => a.location.localeCompare(b.location));
+      return filtered;
+    }
+  },
+  head() {
+    return {
+      title: "Browse Events - EventFlow",
+      meta: [
+        {
+          name: "description",
+          content: "Browse all upcoming events and workshops",
+        },
+      ],
+    };
   }
-
-  return filtered;
-});
-
-// Set page title for SEO
-useHead({
-  title: "Browse Events - EventFlow",
-  meta: [
-    {
-      name: "description",
-      content: "Browse all upcoming events and workshops",
-    },
-  ],
-});
+}
 </script>
 
 <style scoped>
