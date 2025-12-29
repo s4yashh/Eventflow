@@ -114,18 +114,20 @@ export default {
 .event-card {
   background: #fff;
   border-radius: 0.75rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.06);
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
   display: flex;
   flex-direction: column;
+  border: 1px solid #f0f0f0;
 }
 
-/* Hover effect - lift the card slightly */
+/* Hover effect - lift the card with enhanced shadow */
 .event-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15), 0 20px 40px rgba(102, 126, 234, 0.1);
+  border-color: #e5e7eb;
 }
 
 /* Card body padding */
@@ -139,16 +141,18 @@ export default {
 /* Category badge styling */
 .event-card-badge {
   display: inline-block;
-  background-color: rgba(99, 102, 241, 0.1);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.12) 0%, rgba(118, 75, 162, 0.08) 100%);
   color: #6366f1;
-  padding: 0.25rem 0.75rem;
+  padding: 0.375rem 0.875rem;
   border-radius: 9999px;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
   margin-bottom: 0.75rem;
   width: fit-content;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  transition: all 0.2s ease;
 }
 
 /* Event title */
@@ -207,23 +211,40 @@ export default {
   color: #6366f1;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 0.5rem 0;
   width: fit-content;
+  position: relative;
+}
+
+.event-card-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .event-card-link:hover {
-  color: #8b5cf6;
+  color: #764ba2;
   gap: 0.75rem;
+}
+
+.event-card-link:hover::after {
+  width: 100%;
 }
 
 .link-arrow {
   display: inline-block;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .event-card-link:hover .link-arrow {
   transform: translateX(4px);
+}
 }
 
 /* Responsive design for tablets */
