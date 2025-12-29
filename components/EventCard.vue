@@ -79,6 +79,7 @@
 </template>
 
 
+<script>
 export default {
   name: 'EventCard',
   props: ['event'],
