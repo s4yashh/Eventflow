@@ -58,7 +58,7 @@
  *
  * This is a stateless (presentational) component with no props or data.
  */
-export default {}
+export default {};
 </script>
 
 <style scoped>

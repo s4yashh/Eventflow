@@ -107,7 +107,7 @@
  *
  * This is a stateless (presentational) component displayed at the bottom of every page.
  */
-export default {}
+export default {};
 </script>
 
 <style scoped>
@@ -171,7 +171,7 @@ export default {}
 }
 
 .footer-links a::before {
-  content: '›';
+  content: "›";
   margin-right: 8px;
   opacity: 0;
   transform: translateX(-4px);

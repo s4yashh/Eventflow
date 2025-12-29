@@ -78,11 +78,10 @@
   </div>
 </template>
 
-
 <script>
 export default {
-  name: 'EventCard',
-  props: ['event'],
+  name: "EventCard",
+  props: ["event"],
   methods: {
     /**
      * Format Date Utility Function
@@ -99,13 +98,13 @@ export default {
         day: "numeric",
       };
       return new Date(dateString).toLocaleDateString("en-US", options);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
-/* 
+/*
   EventCard Component Styles
   All styles are scoped to this component only
 */

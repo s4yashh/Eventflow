@@ -43,7 +43,8 @@
         <div class="empty-state-icon">🎯</div>
         <h2 class="empty-state-title">No events found</h2>
         <p class="empty-state-text">
-          Try adjusting your search terms. We'll help you find the perfect event!
+          Try adjusting your search terms. We'll help you find the perfect
+          event!
         </p>
         <button @click="searchQuery = ''" class="empty-state-button">
           Clear Search

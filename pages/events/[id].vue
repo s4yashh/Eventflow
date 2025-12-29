@@ -114,7 +114,9 @@
         <!-- Navigation buttons -->
         <!-- Related Events Section -->
         <section v-if="relatedEvents.length > 0" class="related-events">
-          <h2 class="related-events__title">More {{ event.category }} Events</h2>
+          <h2 class="related-events__title">
+            More {{ event.category }} Events
+          </h2>
           <div class="related-events__grid">
             <EventCard
               v-for="relEvent in relatedEvents.slice(0, 3)"
@@ -174,12 +176,12 @@ import eventsData from "~/data/events.json";
 
 export default {
   components: {
-    EventCard
+    EventCard,
   },
   data() {
     return {
       eventId: null,
-      allEvents: eventsData
+      allEvents: eventsData,
     };
   },
   computed: {
@@ -189,11 +191,15 @@ export default {
     },
     // Find previous and next events for navigation
     previousEvent() {
-      const currentIndex = this.allEvents.findIndex((e) => e.id === this.eventId);
+      const currentIndex = this.allEvents.findIndex(
+        (e) => e.id === this.eventId
+      );
       return currentIndex > 0 ? this.allEvents[currentIndex - 1] : null;
     },
     nextEvent() {
-      const currentIndex = this.allEvents.findIndex((e) => e.id === this.eventId);
+      const currentIndex = this.allEvents.findIndex(
+        (e) => e.id === this.eventId
+      );
       return currentIndex < this.allEvents.length - 1
         ? this.allEvents[currentIndex + 1]
         : null;
@@ -204,7 +210,7 @@ export default {
       return this.allEvents.filter(
         (e) => e.category === this.event.category && e.id !== this.event.id
       );
-    }
+    },
   },
   mounted() {
     this.eventId = parseInt(this.$route.params.id);
@@ -230,7 +236,7 @@ export default {
       if (this.nextEvent) {
         this.$router.push(`/events/${this.nextEvent.id}`);
       }
-    }
+    },
   },
   head() {
     return {
@@ -246,8 +252,8 @@ export default {
         },
       ],
     };
-  }
-}
+  },
+};
 </script>
 
 <style scoped>

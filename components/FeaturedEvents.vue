@@ -9,7 +9,9 @@
   <section class="featured-section">
     <div class="featured-header">
       <h2 class="featured-title">⭐ Featured Events</h2>
-      <p class="featured-subtitle">Curated selection of popular events you shouldn't miss</p>
+      <p class="featured-subtitle">
+        Curated selection of popular events you shouldn't miss
+      </p>
     </div>
 
     <div v-if="displayedEvents.length > 0" class="featured-grid">
@@ -20,7 +22,10 @@
         :style="{ borderLeftColor: getCategoryColor(event.category) }"
       >
         <div class="featured-card-header">
-          <span class="featured-badge" :style="{ backgroundColor: getCategoryBg(event.category) }">
+          <span
+            class="featured-badge"
+            :style="{ backgroundColor: getCategoryBg(event.category) }"
+          >
             {{ event.category }}
           </span>
           <span class="featured-star">⭐</span>
@@ -53,14 +58,14 @@ export default {
   props: {
     events: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     displayedEvents() {
       // Show only the first 3 events as featured
       return this.events.slice(0, 3);
-    }
+    },
   },
   methods: {
     formatDate(dateString) {
@@ -68,32 +73,36 @@ export default {
       return date.toLocaleDateString("en-US", {
         month: "short",
         day: "numeric",
-        year: "numeric"
+        year: "numeric",
       });
     },
     getCategoryColor(category) {
       const colors = {
-        "Technology": "#667eea",
-        "Design": "#f59e0b"
+        Technology: "#667eea",
+        Design: "#f59e0b",
       };
       return colors[category] || "#667eea";
     },
     getCategoryBg(category) {
       const colors = {
-        "Technology": "rgba(102, 126, 234, 0.1)",
-        "Design": "rgba(245, 158, 11, 0.1)"
+        Technology: "rgba(102, 126, 234, 0.1)",
+        Design: "rgba(245, 158, 11, 0.1)",
       };
       return colors[category] || "rgba(102, 126, 234, 0.1)";
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
 /* Featured Events Section */
 .featured-section {
   padding: 60px 24px;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.05) 0%,
+    rgba(245, 158, 11, 0.05) 100%
+  );
   margin: 0 auto;
   max-width: 1200px;
   border-radius: 16px;
@@ -139,13 +148,17 @@ export default {
 }
 
 .featured-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
   width: 100px;
   height: 100px;
-  background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(102, 126, 234, 0.1) 0%,
+    transparent 70%
+  );
   pointer-events: none;
 }
 
@@ -240,7 +253,8 @@ export default {
 
 /* Animations */
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
