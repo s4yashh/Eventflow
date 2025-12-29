@@ -113,19 +113,22 @@ export default {}
 <style scoped>
 /* Footer container and layout */
 .footer {
-  background-color: #1f2937;
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
   color: #d1d5db;
-  padding: 3rem 0 1rem;
-  margin-top: 4rem;
-  border-top: 1px solid #374151;
+  padding: 60px 24px 20px;
+  margin-top: 80px;
+  border-top: 2px solid #374151;
 }
 
 /* Main footer content grid */
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  gap: 40px;
+  margin-bottom: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Individual footer section */
@@ -138,14 +141,14 @@ export default {}
   font-size: 1rem;
   font-weight: 700;
   color: #f3f4f6;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
   letter-spacing: -0.5px;
 }
 
 .footer-section-description {
   font-size: 0.9rem;
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
   color: #d1d5db;
 }
 
@@ -154,21 +157,35 @@ export default {}
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 12px;
 }
 
 .footer-links a {
   color: #d1d5db;
   text-decoration: none;
   font-size: 0.9rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.footer-links a::before {
+  content: '›';
+  margin-right: 8px;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: #f3f4f6;
-  text-decoration: underline;
+  color: #667eea;
+  padding-left: 8px;
+}
+
+.footer-links a:hover::before {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* Contact information */
@@ -176,13 +193,13 @@ export default {}
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 12px;
 }
 
 .contact-info li {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 12px;
   font-size: 0.9rem;
   color: #d1d5db;
 }
@@ -199,30 +216,34 @@ export default {}
 }
 
 .contact-info a:hover {
-  color: #f3f4f6;
+  color: #667eea;
 }
 
 /* Social links */
 .social-links {
   display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 12px;
+  margin-top: 16px;
 }
 
 .social-link {
   display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  background: rgba(102, 126, 234, 0.15);
   color: #d1d5db;
-  border-radius: 0.375rem;
-  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
   font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .social-link:hover {
-  background-color: #6366f1;
-  color: #fff;
+  background: rgba(102, 126, 234, 0.3);
+  color: #f3f4f6;
+  border-color: #667eea;
+  transform: translateY(-2px);
 }
 
 /* Footer bottom section */
