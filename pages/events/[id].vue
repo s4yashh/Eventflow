@@ -112,6 +112,18 @@
         </div>
 
         <!-- Navigation buttons -->
+        <!-- Related Events Section -->
+        <section v-if="relatedEvents.length > 0" class="related-events">
+          <h2 class="related-events__title">More {{ event.category }} Events</h2>
+          <div class="related-events__grid">
+            <EventCard
+              v-for="relEvent in relatedEvents.slice(0, 3)"
+              :key="relEvent.id"
+              :event="relEvent"
+            />
+          </div>
+        </section>
+
         <div class="event-navigation">
           <NuxtLink to="/events" class="nav-btn nav-btn--secondary">
             ← Back to Events
@@ -157,9 +169,13 @@
 </template>
 
 <script>
+import EventCard from "~/components/EventCard.vue";
 import eventsData from "~/data/events.json";
 
 export default {
+  components: {
+    EventCard
+  },
   data() {
     return {
       eventId: null,
@@ -181,6 +197,13 @@ export default {
       return currentIndex < this.allEvents.length - 1
         ? this.allEvents[currentIndex + 1]
         : null;
+    },
+    // Find related events by category
+    relatedEvents() {
+      if (!this.event) return [];
+      return this.allEvents.filter(
+        (e) => e.category === this.event.category && e.id !== this.event.id
+      );
     }
   },
   mounted() {
@@ -501,6 +524,26 @@ export default {
 .share-btn:hover {
   background: #667eea;
   color: white;
+}
+
+/* Related Events Section */
+.related-events {
+  margin: 60px 0;
+  padding: 40px 0;
+  border-top: 2px solid #e5e7eb;
+}
+
+.related-events__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 32px;
+}
+
+.related-events__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
 }
 
 /* Navigation */
