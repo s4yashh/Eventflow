@@ -26,12 +26,29 @@
             <span class="search-bar__icon">🔍</span>
           </div>
 
+          <!-- Category filter tabs -->
+          <div class="category-filter">
+            <button
+              v-for="category in categories"
+              :key="category"
+              :class="['category-btn', { active: selectedCategory === category }]"
+              @click="selectedCategory = category"
+            >
+              {{ category === 'All' ? '✨ All' : category }}
+            </button>
+          </div>
+
           <!-- Sort options -->
           <select v-model="sortBy" class="sort-select">
             <option value="date">Sort by Date</option>
             <option value="title">Sort by Title</option>
             <option value="location">Sort by Location</option>
           </select>
+        </div>
+
+        <!-- Results count -->
+        <div class="results-count">
+          <p>Showing {{ filteredEvents.length }} of {{ events.length }} events</p>
         </div>
 
         <!-- Events list -->
@@ -46,15 +63,11 @@
         <!-- Empty state -->
         <div v-else class="empty-state">
           <p class="empty-state__icon">📭</p>
-          <h2 class="empty-state__title">No events match your search</h2>
+          <h2 class="empty-state__title">No events match your filters</h2>
           <p class="empty-state__text">
-            Try different search terms or visit the homepage
+            Try adjusting your search terms or category filters
           </p>
           <NuxtLink to="/" class="empty-state__link"> ← Back to Home </NuxtLink>
-        </div>
-      </div>
-    </section>
-  </div>
 </template>
 
 <script>
@@ -68,17 +81,30 @@ export default {
   data() {
     return {
       searchQuery: "",
+      selectedCategory: "All",
       sortBy: "date",
-      events: eventsData
+      events: eventsData,
+      categories: ["All", "Technology", "Design"]
     };
   },
   computed: {
     // Filter and sort events
     filteredEvents() {
-      let filtered = this.events.filter(
+      let filtered = this.events;
+
+      // Filter by category
+      if (this.selectedCategory !== "All") {
+        filtered = filtered.filter(
+          (event) => event.category === this.selectedCategory
+        );
+      }
+
+      // Filter by search query
+      filtered = filtered.filter(
         (event) =>
           event.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-          event.location.toLowerCase().includes(this.searchQuery.toLowerCase())
+          event.location.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+          event.description.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
 
       // Sort events
@@ -189,11 +215,41 @@ export default {
   font-size: 16px;
 }
 
-.sort-select {
-  padding: 12px 16px;
+/* Category Filter */
+.category-filter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  padding: 8px 16px;
   border: 2px solid #e5e7eb;
   border-radius: 8px;
-  font-size: 16px;
+  background: white;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.category-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.sort-select {
+  padding: 10px 12px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
   background: white;
   cursor: pointer;
   transition: border-color 0.2s ease;
@@ -202,6 +258,13 @@ export default {
 .sort-select:focus {
   outline: none;
   border-color: #667eea;
+}
+
+/* Results count */
+.results-count {
+  margin-bottom: 24px;
+  color: #6b7280;
+  font-size: 14px;
 }
 
 /* Events list grid */
