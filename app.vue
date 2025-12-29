@@ -1,4 +1,4 @@
-<!-- app.vue - Main application layout (Twig-style template) -->
+<!-- app.vue - Main application layout -->
 <template>
   <div class="app">
     <!-- Header component at the top of every page -->
@@ -14,10 +14,17 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script>
 // Import layout components
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
+
+export default {
+  components: {
+    Header,
+    Footer
+  }
+}
 </script>
 
 <style>
