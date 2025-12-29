@@ -11,6 +11,9 @@
       </div>
     </section>
 
+    <!-- Featured Events Section -->
+    <FeaturedEvents :events="events" />
+
     <!-- Search bar for filtering events by name -->
     <div class="search-section">
       <div class="search-container">
@@ -53,6 +56,7 @@
 <script>
 // Import EventCard component
 import EventCard from "@/components/EventCard.vue";
+import FeaturedEvents from "@/components/FeaturedEvents.vue";
 
 // Import mock event data
 import eventsData from "@/data/events.json";
@@ -62,6 +66,7 @@ export default {
   name: "Index",
   components: {
     EventCard,
+    FeaturedEvents,
   },
   data() {
     return {
