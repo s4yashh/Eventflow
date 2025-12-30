@@ -244,7 +244,6 @@ export default {
 .event-card-link:hover .link-arrow {
   transform: translateX(4px);
 }
-}
 
 /* Responsive design for tablets */
 @media (max-width: 768px) {

@@ -68,6 +68,10 @@
             Try adjusting your search terms or category filters
           </p>
           <NuxtLink to="/" class="empty-state__link"> ← Back to Home </NuxtLink>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
