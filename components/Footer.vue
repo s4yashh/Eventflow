@@ -113,11 +113,11 @@ export default {};
 <style scoped>
 /* Footer container and layout */
 .footer {
-  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-  color: #d1d5db;
+  background: #000;
+  color: #fff;
   padding: 60px 24px 20px;
   margin-top: 80px;
-  border-top: 2px solid #374151;
+  border-top: 2px solid #333;
 }
 
 /* Main footer content grid */
@@ -140,7 +140,7 @@ export default {};
 .footer-section-title {
   font-size: 1rem;
   font-weight: 700;
-  color: #f3f4f6;
+  color: #fff;
   margin-bottom: 16px;
   letter-spacing: -0.5px;
 }
@@ -149,7 +149,7 @@ export default {};
   font-size: 0.9rem;
   line-height: 1.6;
   margin-bottom: 16px;
-  color: #d1d5db;
+  color: #ccc;
 }
 
 /* Links in footer */
@@ -161,7 +161,7 @@ export default {};
 }
 
 .footer-links a {
-  color: #d1d5db;
+  color: #ccc;
   text-decoration: none;
   font-size: 0.9rem;
   transition: all 0.3s ease;
@@ -179,8 +179,9 @@ export default {};
 }
 
 .footer-links a:hover {
-  color: #667eea;
+  color: #fff;
   padding-left: 8px;
+  text-decoration: underline;
 }
 
 .footer-links a:hover::before {

@@ -31,10 +31,13 @@
             <button
               v-for="category in categories"
               :key="category"
-              :class="['category-btn', { active: selectedCategory === category }]"
+              :class="[
+                'category-btn',
+                { active: selectedCategory === category },
+              ]"
               @click="selectedCategory = category"
             >
-              {{ category === 'All' ? '✨ All' : category }}
+              {{ category === "All" ? "✨ All" : category }}
             </button>
           </div>
 
@@ -48,7 +51,9 @@
 
         <!-- Results count -->
         <div class="results-count">
-          <p>Showing {{ filteredEvents.length }} of {{ events.length }} events</p>
+          <p>
+            Showing {{ filteredEvents.length }} of {{ events.length }} events
+          </p>
         </div>
 
         <!-- Events list -->
@@ -80,7 +85,7 @@ import eventsData from "~/data/events.json";
 
 export default {
   components: {
-    EventCard
+    EventCard,
   },
   data() {
     return {
@@ -88,7 +93,7 @@ export default {
       selectedCategory: "All",
       sortBy: "date",
       events: eventsData,
-      categories: ["All", "Technology", "Design"]
+      categories: ["All", "Technology", "Design"],
     };
   },
   computed: {
@@ -107,8 +112,12 @@ export default {
       filtered = filtered.filter(
         (event) =>
           event.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-          event.location.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-          event.description.toLowerCase().includes(this.searchQuery.toLowerCase())
+          event.location
+            .toLowerCase()
+            .includes(this.searchQuery.toLowerCase()) ||
+          event.description
+            .toLowerCase()
+            .includes(this.searchQuery.toLowerCase())
       );
 
       // Sort events
@@ -123,7 +132,7 @@ export default {
       }
 
       return filtered;
-    }
+    },
   },
   head() {
     return {
@@ -135,8 +144,8 @@ export default {
         },
       ],
     };
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
@@ -148,10 +157,11 @@ export default {
 
 /* Page header */
 .page-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #000;
   color: white;
   padding: 60px 24px;
   text-align: center;
+  border-bottom: 2px solid #333;
 }
 
 .page-header__content {

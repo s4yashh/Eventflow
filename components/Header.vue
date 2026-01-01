@@ -70,7 +70,7 @@ export default {};
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 2px solid #000;
 }
 
 .header-content {
@@ -89,7 +89,7 @@ export default {};
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #6366f1;
+  color: #000;
   font-weight: 700;
   font-size: 1.5rem;
   transition: all 0.3s ease;
@@ -97,7 +97,7 @@ export default {};
 }
 
 .logo-link:hover {
-  color: #8b5cf6;
+  color: #333;
   transform: translateY(-2px);
 }
 
@@ -132,7 +132,7 @@ export default {};
 }
 
 .nav-link:hover {
-  color: #6366f1;
+  color: #000;
 }
 
 /* Underline animation on hover (optional enhancement) */
@@ -143,7 +143,7 @@ export default {};
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #6366f1;
+  background-color: #000;
   transition: width 0.3s ease;
 }
 

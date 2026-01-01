@@ -125,8 +125,8 @@ export default {
 /* Hover effect - lift the card with enhanced shadow */
 .event-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15), 0 20px 40px rgba(102, 126, 234, 0.1);
-  border-color: #e5e7eb;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15), 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-color: #333;
 }
 
 /* Card body padding */
@@ -140,8 +140,8 @@ export default {
 /* Category badge styling */
 .event-card-badge {
   display: inline-block;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.12) 0%, rgba(118, 75, 162, 0.08) 100%);
-  color: #6366f1;
+  background: #f5f5f5;
+  color: #000;
   padding: 0.375rem 0.875rem;
   border-radius: 9999px;
   font-size: 0.75rem;
@@ -150,7 +150,7 @@ export default {
   letter-spacing: 0.6px;
   margin-bottom: 0.75rem;
   width: fit-content;
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  border: 1px solid #000;
   transition: all 0.2s ease;
 }
 
@@ -158,7 +158,7 @@ export default {
 .event-card-title {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #000;
   margin-bottom: 0.75rem;
   line-height: 1.3;
 }
@@ -166,7 +166,7 @@ export default {
 /* Event description - truncated to 2 lines */
 .event-card-description {
   font-size: 0.9rem;
-  color: #6b7280;
+  color: #555;
   margin-bottom: 1rem;
   line-height: 1.5;
   overflow: hidden;
@@ -191,7 +191,7 @@ export default {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.85rem;
-  color: #6b7280;
+  color: #555;
 }
 
 .meta-icon {
@@ -207,7 +207,7 @@ export default {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #6366f1;
+  color: #000;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -217,18 +217,18 @@ export default {
 }
 
 .event-card-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: #000;
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .event-card-link:hover {
-  color: #764ba2;
+  color: #333;
   gap: 0.75rem;
 }
 

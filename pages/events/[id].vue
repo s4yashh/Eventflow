@@ -262,7 +262,8 @@ export default {
   width: 100%;
   height: 400px;
   overflow: hidden;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #f0f0f0;
+  border-bottom: 2px solid #000;
 }
 
 .event-header-image img {
@@ -289,25 +290,26 @@ export default {
   gap: 8px;
   margin-bottom: 40px;
   font-size: 14px;
-  color: #6b7280;
+  color: #555;
 }
 
 .breadcrumb__link {
-  color: #667eea;
+  color: #000;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .breadcrumb__link:hover {
-  color: #764ba2;
+  color: #333;
+  text-decoration: underline;
 }
 
 .breadcrumb__separator {
-  color: #d1d5db;
+  color: #999;
 }
 
 .breadcrumb__current {
-  color: #1f2937;
+  color: #000;
   font-weight: 600;
 }
 
@@ -324,13 +326,12 @@ export default {
   display: flex;
   flex-direction: column;
 }
-
 /* Category badge */
 .event-category {
   display: inline-block;
   width: fit-content;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: #f5f5f5;
+  color: #000;
   padding: 8px 16px;
   border-radius: 6px;
   font-size: 12px;
@@ -338,13 +339,14 @@ export default {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 16px;
+  border: 1px solid #000;
 }
-
+margin-bottom: 16px;
 /* Event title */
 .event-title {
   font-size: 42px;
   font-weight: 800;
-  color: #1f2937;
+  color: #000;
   margin-bottom: 32px;
   line-height: 1.2;
 }

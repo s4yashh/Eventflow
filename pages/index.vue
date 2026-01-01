@@ -127,11 +127,12 @@ export default {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #000;
   color: white;
   padding: 80px 24px;
   text-align: center;
   margin-bottom: 40px;
+  border-bottom: 2px solid #333;
 }
 
 .hero-content {
@@ -163,31 +164,30 @@ export default {
 .search-container {
   margin-bottom: 12px;
 }
-
 .search-input {
   width: 100%;
   padding: 16px 20px;
   font-size: 16px;
-  border: 2px solid #e5e7eb;
+  border: 2px solid #000;
   border-radius: 12px;
   outline: none;
   transition: all 0.3s ease;
   background: white;
-  color: #1f2937;
+  color: #000;
 }
 
 .search-input:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 .search-input::placeholder {
-  color: #9ca3af;
+  color: #666;
 }
 
 .search-hint {
   font-size: 14px;
-  color: #6b7280;
+  color: #555;
   margin: 0;
 }
 
@@ -220,13 +220,13 @@ export default {
 .empty-state-title {
   font-size: 28px;
   font-weight: 700;
-  color: #1f2937;
+  color: #000;
   margin-bottom: 12px;
 }
 
 .empty-state-text {
   font-size: 16px;
-  color: #6b7280;
+  color: #555;
   margin-bottom: 24px;
   max-width: 400px;
   margin-left: auto;
@@ -235,9 +235,9 @@ export default {
 
 .empty-state-button {
   padding: 12px 28px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #000;
   color: white;
-  border: none;
+  border: 1px solid #000;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
@@ -247,7 +247,8 @@ export default {
 
 .empty-state-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background: #333;
 }
 
 /* Animations */
